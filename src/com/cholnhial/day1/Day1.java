@@ -30,6 +30,21 @@ public class Day1 {
         System.out.printf("Solution 1: Total Increases: %d\n", totalIncreases);
     }
 
+    private static int getTotalIncreases(List<Integer> numbers) {
+        int totalIncreases = 0;
+        Iterator<Integer> iter = numbers.iterator();
+
+        Integer lastNumber = iter.next();
+        while(iter.hasNext()) {
+            Integer nextLastNumber =  iter.next();
+            if (nextLastNumber > lastNumber) {
+                totalIncreases++;
+            }
+            lastNumber = nextLastNumber;
+        }
+        return totalIncreases;
+    }
+
     private static void solvePartTwo() throws Exception {
         FileUtil fileUtil = new FileUtil();
         var lines = fileUtil.readFileFromResource("day1.input.txt");
@@ -63,20 +78,7 @@ public class Day1 {
         return results;
     }
 
-    private static int getTotalIncreases(List<Integer> numbers) {
-        int totalIncreases = 0;
-        Iterator<Integer> iter = numbers.iterator();
 
-        Integer lastNumber = iter.next();
-        while(iter.hasNext()) {
-            Integer nextLastNumber =  iter.next();
-            if (nextLastNumber > lastNumber) {
-                totalIncreases++;
-            }
-            lastNumber = nextLastNumber;
-         }
-        return totalIncreases;
-    }
 
 
 }
