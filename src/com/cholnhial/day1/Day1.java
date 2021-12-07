@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 
-public class Day {
+public class Day1 {
 
     public static void main(String... args) throws Exception {
         solvePartOne();;
