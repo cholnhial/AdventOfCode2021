@@ -11,13 +11,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class Day1A {
+public class Day {
 
     public static void main(String... args) throws Exception {
+        solvePartOne();;
+    }
+
+    private static void solvePartOne() throws Exception {
         FileUtil fileUtil = new FileUtil();
         var lines = fileUtil.readFileFromResource("day1.input.txt");
 
         List<Integer> numbers = lines.stream().map(Integer::valueOf).collect(Collectors.toList());
+        int totalIncreases = getTotalIncreases(numbers);
+
+        System.out.printf("Total Increases: %d\n", totalIncreases);
+    }
+
+    private static int getTotalIncreases(List<Integer> numbers) {
         int totalIncreases = 0;
         Iterator<Integer> iter = numbers.iterator();
 
@@ -29,10 +39,8 @@ public class Day1A {
             }
             lastNumber = nextLastNumber;
          }
-
-        System.out.printf("Total Increases: %d\n", totalIncreases);
+        return totalIncreases;
     }
-
 
 
 }
